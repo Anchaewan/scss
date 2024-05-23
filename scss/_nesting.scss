@@ -1,0 +1,9 @@
+.gallery {
+  color: red;
+  &__list {
+    color: blue;
+  }
+  &__image {
+    color: orange;
+  }
+}

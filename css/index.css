@@ -1,0 +1,124 @@
+p {
+  font-size: 15px;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background: url(../images/svna.jpg) no-repeat center;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 2px solid red;
+}
+
+.string {
+  position: absolute;
+  background: "../images/img.jpg";
+}
+
+.number {
+  font-size: calc(20px + 3rem);
+}
+
+.mt1 {
+  margin-top: 1px;
+}
+
+.mt2 {
+  margin-top: 2px;
+}
+
+.mt3 {
+  margin-top: 3px;
+}
+
+.mt4 {
+  margin-top: 4px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mt40 {
+  margin-top: 40px;
+}
+
+.mt50 {
+  margin-top: 50px;
+}
+
+.font-sm {
+  font-size: 10px;
+  line-height: 20px;
+}
+
+.font-base {
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.font-sm {
+  line-height: 20px;
+  font-size: 10px;
+}
+
+.font-base {
+  line-height: 30px;
+  font-size: 15px;
+}
+
+div {
+  font-size: 20px;
+}
+
+.gallery {
+  color: red;
+}
+.gallery__list {
+  color: blue;
+}
+.gallery__image {
+  color: orange;
+}
+
+.mixin {
+  background: url(../images/img.png) no-repeat 10px 20px;
+}
+
+.icon {
+  background: url(../images/icon.svg) no-repeat center right;
+}
+
+.box {
+  border: 2px solid blue;
+}
+.box:hover {
+  border-color: transparent;
+}
+.box::after {
+  content: "";
+}
+
+.box2 {
+  border: 2px solid pink;
+}
+.box2:hover {
+  border-color: transparent;
+}
+.box2::after {
+  content: "";
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,42 @@
+// @mixin 함수이름지정(매개변수) {
+//     함수: url(경로/파일명) no-repeat x축 y축;
+// }
+
+@mixin background($img, $coordinate) {
+  background: url(#{$imgurl}#{$img}) no-repeat $coordinate;
+}
+
+// @mixin border($borderWidth : '고정된 기본값'을 줄 수 있음, $borderColor : '고정된 기본값'을 줄 수 있음) {
+//   border: $borderWidth solid $borderColor;
+// }
+@mixin border($borderWidth: 1px, $borderColor: #000, $hoverColor: red) {
+  border: $borderWidth solid $borderColor;
+  &:hover {
+    border-color: transparent;
+  }
+  &:focus {
+  }
+  &::after {
+    content: "";
+  }
+}
+
+.mixin {
+  @include background("img.png", 10px 20px);
+}
+
+.icon {
+  @include background("icon.svg", center right);
+}
+
+// .box {
+//   @include border(10px, green);
+// }
+
+.box {
+  @include border(2px, blue, pink);
+}
+
+.box2 {
+  @include border(2px, pink, orange);
+}
