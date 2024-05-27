@@ -121,4 +121,155 @@ div {
   content: "";
 }
 
+.block, .box {
+  color: red;
+  font-size: 20px;
+}
+
+.active, .box {
+  width: 390px;
+  height: 40px;
+}
+
+.box {
+  border: 1px solid blue;
+}
+
+.block {
+  background: orange;
+}
+
+.box {
+  left: 1px;
+}
+
+.box {
+  left: 2px;
+}
+
+.box {
+  left: 3px;
+}
+
+.box {
+  left: 4px;
+}
+
+.box {
+  left: 5px;
+}
+
+.icon-list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+.icon-list li {
+  width: 150px;
+  height: 250px;
+  border: 1px solid silver;
+}
+
+.icon1 {
+  background: url(../images/icon1.svg) no-repeat;
+}
+.icon1:hover {
+  background: url(../images/icon1_on.svg) no-repeat;
+}
+
+.icon2 {
+  background: url(../images/icon2.svg) no-repeat;
+}
+.icon2:hover {
+  background: url(../images/icon2_on.svg) no-repeat;
+}
+
+.icon3 {
+  background: url(../images/icon3.svg) no-repeat;
+}
+.icon3:hover {
+  background: url(../images/icon3_on.svg) no-repeat;
+}
+
+.icon4 {
+  background: url(../images/icon4.svg) no-repeat;
+}
+.icon4:hover {
+  background: url(../images/icon4_on.svg) no-repeat;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-blue {
+  color: blue;
+}
+
+.text-orange {
+  color: orange;
+}
+
+.text-pink {
+  color: #fc817c;
+}
+
+.text-purple {
+  color: #b174ee;
+}
+
+.btn-write, .btn-emoji {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-emoji {
+  background: url(../images/btn_emoji.svg) no-repeat;
+}
+
+.btn-write {
+  background: url(../images/btn_write.svg) no-repeat;
+}
+
+.popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  border: 2px solid red;
+  background-color: #fff;
+}
+
+.btn-theme {
+  width: 120px;
+  height: 48px;
+  border-radius: 48px;
+  border: 1px solid #999;
+  background: #fff;
+  color: gray;
+}
+.dark .btn-theme {
+  border: 1px solid #fff;
+  background: #000;
+  color: #fff;
+}
+
+.avatar.circle {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid #000;
+  border-radius: 100%;
+}
+.avatar.square {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid #000;
+}
+
 /*# sourceMappingURL=index.css.map */

@@ -1,0 +1,27 @@
+// .block,
+// .box {
+//   color: red;
+//   font-size: 20px;
+// }
+
+%name {
+  //중복된 속성값
+  color: red;
+  font-size: 20px;
+}
+
+.active {
+  width: 390px;
+  height: 40px;
+}
+
+.box {
+  @extend %name;
+  @extend .active;
+  border: 1px solid blue;
+}
+
+.block {
+  @extend %name;
+  background: orange;
+}

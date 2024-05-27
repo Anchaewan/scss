@@ -1,0 +1,45 @@
+// @for $VarName from 1 through 3 {
+//     1
+//     2
+//     3
+// }
+
+@for $index from 1 through 5 {
+  .box {
+    left: $index + px;
+  }
+}
+
+.icon-list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  li {
+    width: 150px;
+    height: 250px;
+    border: 1px solid silver;
+  }
+}
+
+@for $index from 1 through 4 {
+  .icon#{$index} {
+    @include background("icon#{$index}.svg", null);
+    &:hover {
+      @include background("icon#{$index}_on.svg", null);
+    }
+  }
+}
+
+//   .icon1 {
+//     @include background("pig.svg", null);
+//   }
+//   .icon2 {
+//     @include background("paint.svg", null);
+//   }
+//   .icon3 {
+//     @include background("pill.svg", null);
+//   }
+//   .icon4 {
+//     @include background("siren.svg", null);
+//   }
+// }

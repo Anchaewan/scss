@@ -1,0 +1,61 @@
+// $리스트형변수: 값, 값, 값;
+
+// @each $각각의아이템 in $리스트형변수명 {
+// }
+
+$color: red, blue, orange;
+
+@each $item in $color {
+  .text-#{$item} {
+    color: $item;
+  }
+}
+
+$colorList: pink #fc817c, purple #b174ee;
+
+@each $class, $colorValue in $colorList {
+  .text-#{$class} {
+    color: $colorValue;
+  }
+}
+
+%iconButton {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+$buttonList: ".btn-emoji" "btn_emoji.svg", ".btn-write" "btn_write.svg";
+
+@each $class, $image in $buttonList {
+  #{$class} {
+    @include background($image, null);
+    @extend %iconButton;
+  }
+}
+
+// .btn-emoji {
+//   @include background("btn_emoji.svg", null);
+//   width: 50px;
+//   height: 50px;
+//   border: none;
+//   cursor: pointer;
+// }
+// .btn-write {
+//   @include background("btn_write.svg", null);
+//   width: 50px;
+//   height: 50px;
+//   border: none;
+//   cursor: pointer;
+// }
+
+// .text-red {
+//   color: red;
+// }
+// .text-blue {
+//   color: blue;
+// }
+// .text-orange {
+//   color: orange;
+// }
