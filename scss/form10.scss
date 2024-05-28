@@ -1,0 +1,265 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+$imgurl: "../images/";
+
+@mixin background($img, $coordinate) {
+  background: url(#{$imgurl}#{$img}) no-repeat $coordinate;
+}
+
+//방법1
+//오프이미지, 온이미지, 높이, 여백, 오프글씨색상, 온글씨색상, 글씨크기
+// @mixin radio($offImage, $onImage, $height, $space, $offColor, $onColor, $textSize) {
+//   display: none;
+//   + label {
+//     @include background($offImage, left);
+//     display: inline-flex;
+//     height: $height;
+//     color: $offColor;
+//     padding-left: $space;
+//     font-size: $textSize;
+//   }
+//   &:checked {
+//     + label {
+//       @include background($onImage, left);
+//       color: $onColor;
+//     }
+//   }
+// }
+
+// .radio {
+//   @include radio("radio_off.svg", "radio_on.svg", 19px, 21px, #969696, #3f3f3f, 13px);
+// }
+
+//_____________________________________________________________________________________
+//방법2
+//맵형태의 변수
+// $radio: (
+//   //key:value;
+//   radioOffImage: "radio_off.svg",
+//   radioOnImage: "radio_on.svg",
+//   height: 19px,
+//   paddingLeft: 21px,
+//   radioOffTextColor: #969696,
+//   radioOnTextColor: #3f3f3f,
+//   fontSize: 13px
+// );
+
+// @mixin radio {
+//   display: none;
+//   + label {
+//     @include background(map-get($radio, radioOffImage), left);
+//     display: inline-flex;
+//     height: map-get($radio, height);
+//     color: map-get($radio, radioOffTextColor);
+//     padding-left: map-get($radio, paddingLeft);
+//     font-size: map-get($radio, fontSize);
+//   }
+//   &:checked {
+//     + label {
+//       @include background(map-get($radio, radioOnImage), left);
+//       color: map-get($radio, radioOnTextColor);
+//     }
+//   }
+// }
+
+// .radio {
+//   @import radio;
+// }
+//_______________________________________________________________________________
+
+//방법3
+$radioType1: (
+  //key:value;
+  className: ".radio",
+  radioOffImage: "radio_off.svg",
+  radioOnImage: "radio_on.svg",
+  height: 19px,
+  paddingLeft: 21px,
+  radioOffTextColor: #969696,
+  radioOnTextColor: #3f3f3f,
+  fontSize: 13px
+);
+
+$checkType1: (
+  //key:value;
+  className: ".checkbox",
+  radioOffImage: "check_off.svg",
+  radioOnImage: "check_on.svg",
+  height: 22px,
+  paddingLeft: 28px,
+  radioOffTextColor: #000,
+  radioOnTextColor: #000,
+  fontSize: 16px
+);
+
+@mixin radio($radio) {
+  #{map-get($radio, className)} {
+    display: none;
+    + label {
+      @include background(map-get($radio, radioOffImage), left);
+      display: inline-flex;
+      height: map-get($radio, height);
+      color: map-get($radio, radioOffTextColor);
+      padding-left: map-get($radio, paddingLeft);
+      font-size: map-get($radio, fontSize);
+    }
+    &:checked {
+      + label {
+        @include background(map-get($radio, radioOnImage), left);
+        color: map-get($radio, radioOnTextColor);
+      }
+    }
+  }
+}
+@include radio($radioType1);
+@include radio($checkType1);
+
+//_______________________________________________________________________________
+//css방식
+// .radio {
+//   display: none;
+//   + label {
+//     @include background("radio_off.svg", left);
+//     display: inline-flex;
+//     height: 19px;
+//     color: #969696;
+//     padding-left: 21px;
+//     font-size: 13px;
+//   }
+//   &:checked {
+//     + label {
+//       @include background("radio_on.svg", left);
+//       color: #3f3f3f;
+//     }
+//   }
+// }
+
+//________________________ 버튼 _________________________________________________
+// scss 방법1
+// @mixin buttonColor($className) {
+//   @if $className == "white" {
+//     &.#{$className} {
+//       border: 1px solid #b9b9b9;
+//       background: #fff;
+//       color: #000;
+//     }
+//   } @else if $className == "gray" {
+//     &.#{$className} {
+//       background: #b9b9b9;
+//       color: #fff;
+//     }
+//   }
+// }
+
+// .btn {
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   //   width: 120px;  버튼에 가로크기가 있으면 텍스트가 늘어나도 텍스트가 다 보이지 않는다.
+//   min-width: 120px;
+//   padding: 0 20px; // 버튼은 주로 가로크기를 안주고, 양 옆 padding으로 크기를 조절하고 최소 가로크기를 준다.
+//   height: 40px;
+//   border-radius: 20px;
+//   font-size: 13px;
+//   border: none;
+//   background-color: transparent;
+//   box-sizing: border-box;
+//   text-decoration: none;
+//   cursor: pointer; //버튼은 원래 손가락모양이 안나와서 꼭 넣어줘야한다.
+//   @include buttonColor("white");
+//   @include buttonColor("gray");
+
+//   &.white {
+//       border: 1px solid #b9b9b9;
+//     background: #fff;
+//     color: #000;
+// }
+// &.gray {
+//     background: #b9b9b9;
+//     color: #fff;
+// }
+// }
+
+//________________________________________________________________________________________
+
+//방법2
+
+@mixin button($className) {
+  @if $className == "white" {
+    &.#{$className} {
+      border: 1px solid #b9b9b9;
+      background: #fff;
+      color: #000;
+    }
+  } @else if $className == "gray" {
+    &.#{$className} {
+      background: #b9b9b9;
+      color: #fff;
+    }
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 20px;
+  &.width {
+    min-width: 120px;
+  }
+  @include button("white");
+  @include button("gray");
+
+  //   &.white {
+  //     border: 1px solid #b9b9b9;
+  //     background: #fff;
+  //     color: #000;
+  //   }
+  //   &.gray {
+  //     background: #b9b9b9;
+  //     color: #fff;
+  //   }
+}
+
+//_________________________________________________________________________________________
+// css버전
+// button : inline-block 요소
+// a : inline 요소
+// .btn {
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   //   width: 120px;
+//   min-width: 120px;
+//   padding: 0 20px; // 버튼은 주로 가로크기를 안주고, 양 옆 padding으로 크기를 조절하고 최소 가로크기를 준다.
+//   height: 40px;
+//   border-radius: 20px;
+//   font-size: 13px;
+//   border: none;
+//   background-color: transparent;
+//   box-sizing: border-box;
+//   text-decoration: none;
+//   cursor: pointer; //버튼은 원래 손가락모양이 안나와서 꼭 넣어줘야한다.
+//   &.white {
+//     border: 1px solid #b9b9b9;
+//     background: #fff;
+//     color: #000;
+//   }
+//   &.gray {
+//     background: #b9b9b9;
+//     color: #fff;
+//   }
+// }

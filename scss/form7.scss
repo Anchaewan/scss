@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  padding: 30px;
+}
+
+$imgurl: "../images/";
+@mixin background($img, $coordinate) {
+  background: url(#{$imgurl}#{$img}) no-repeat $coordinate;
+}
+
+$select: (
+  imageName: "select.svg",
+  positionRight: 18px,
+  paddingLeft: 18px,
+  paddingRight: 30px,
+);
+
+// @mixin select($image, $right) {
+//     @include background($image, right $right center);
+//     appearance: none;
+//   padding: 0 $paddingRight 0 $paddingLeft;
+// }
+@mixin select($variable) {
+  @include background(
+    map-get($variable, imageName),
+    right map-get($variable, positionRight) center
+  );
+  appearance: none;
+  padding: 0 map-get($variable, paddingRight) 0 map-get($variable, paddingLeft);
+}
+
+%input {
+  width: var(--w, auto);
+  height: 40px;
+  border: 1px solid #dee1e4;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+input {
+  &:not([type="radio"], [type="checkbox"]) {
+    @extend %input;
+  }
+}
+
+select {
+  @extend %input;
+  @include select($select);
+}
+
+.tel-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #787878;
+}
+
+.address {
+  display: grid;
+  grid-template-columns: 244px auto 1fr;
+  gap: 5px 9px; // gap 행, 열 순서로 작성
+  button {
+    grid-column: 2/4;
+    justify-self: start;
+  }
+  input:nth-of-type(2) {
+    grid-column: 1/3;
+  }
+}

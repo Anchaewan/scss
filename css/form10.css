@@ -1,0 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.radio {
+  display: none;
+}
+.radio + label {
+  background: url(../images/radio_off.svg) no-repeat left;
+  display: inline-flex;
+  height: 19px;
+  color: #969696;
+  padding-left: 21px;
+  font-size: 13px;
+}
+.radio:checked + label {
+  background: url(../images/radio_on.svg) no-repeat left;
+  color: #3f3f3f;
+}
+
+.checkbox {
+  display: none;
+}
+.checkbox + label {
+  background: url(../images/check_off.svg) no-repeat left;
+  display: inline-flex;
+  height: 22px;
+  color: #000;
+  padding-left: 28px;
+  font-size: 16px;
+}
+.checkbox:checked + label {
+  background: url(../images/check_on.svg) no-repeat left;
+  color: #000;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: none;
+  background-color: transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 20px;
+}
+.btn.width {
+  min-width: 120px;
+}
+.btn.white {
+  border: 1px solid #b9b9b9;
+  background: #fff;
+  color: #000;
+}
+.btn.gray {
+  background: #b9b9b9;
+  color: #fff;
+}
+
+/*# sourceMappingURL=form10.css.map */

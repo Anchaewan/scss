@@ -47,11 +47,11 @@ body {
 }
 
 summary {
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content 1fr;
   align-items: center;
   position: relative;
   padding-left: 20px;
-  height: 52px;
   color: #121314;
   font-size: 15px;
   &::after {
@@ -68,7 +68,7 @@ summary {
 }
 
 .title {
-  margin-left: 20px;
+  margin: 15px 40px 15px 20px;
 }
 
 @mixin faqBadge($color, $arrow: false, $direction: right) {
