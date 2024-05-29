@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+body {
+  padding: 30px;
+}
+$mobileSize: 768px;
+$tabletSize: 1024px;
+@mixin tablet {
+  @media (calc($mobileSize + 1px) < width < $tabletSize) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (width < $mobileSize) {
+    @content;
+  }
+}
+
+.table4 {
+  th {
+    background: #f6f6f6;
+  }
+  th,
+  td {
+    //mixin, extend
+
+    //css코드
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+
+    //반응형
+    @include mobile {
+      display: block;
+    }
+    @include tablet {
+      border-color: red;
+    }
+  }
+}
+
+.table4-1 {
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid gray;
+  }
+}
+
+.responsive-table {
+  @include mobile {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    &.--active {
+      overflow: auto;
+      &::after {
+        display: none;
+      }
+    }
+    &::after {
+      content: "클릭후 좌우로 드래그해서 \a 표를 볼 수 있습니다.";
+      white-space: pre;
+      text-align: center;
+      position: absolute;
+      inset: 0;
+      // left:0 right:0 top:0 bottom:0;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    > table {
+      width: 1000px;
+    }
+  }
+}
+
+.table4-2 {
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid gray;
+  }
+  @include mobile {
+    thead {
+      display: none;
+    }
+    td {
+      display: block;
+      &::before {
+        content: attr(data-th); //attribute : HTML속성
+      }
+    }
+    th,
+    td {
+      border: none;
+    }
+    tr {
+      border: 1px solid gray;
+    }
+  }
+}
